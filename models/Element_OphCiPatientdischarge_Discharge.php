@@ -158,12 +158,6 @@ class Element_OphCiPatientdischarge_Discharge  extends  BaseEventTypeElement
 		));
 	}
 
-	public function setDefaultOptions()
-	{
-		$this->patient_followup_datetime_time = '12:00';
-		$this->surgical_case_review_datetime_time = '12:00';
-	}
-
 	public function afterFind()
 	{
 		$this->patient_followup_datetime_time = substr($this->patient_followup_datetime,11,5);
