@@ -31,7 +31,7 @@
 		<?php echo $form->checkBox($element, 'eye_dressing_in_place', array('text-align' => 'right'), array('label' => 3, 'field' => 4))?>
 		<?php echo $form->checkBox($element, 'iv_removed', array('text-align' => 'right'), array('label' => 3, 'field' => 4))?>
 		<?php echo $form->checkBox($element, 'ecg_dots_removed', array('text-align' => 'right'), array('label' => 3, 'field' => 4))?>
-		<?php echo $form->radioBoolean($element, 'change_noted', array(), array('label' => 3, 'field' => 4))?>
-		<?php echo $form->textArea($element, 'comments', array(), false, array(), array('label' => 3, 'field' => 4))?>
+		<?php echo $form->radioBoolean($element, 'change_noted', array('class' => 'linked-fields', 'data-linked-fields' => 'comments', 'data-linked-values' => 'Yes'), array('label' => 3, 'field' => 4))?>
+		<?php echo $form->textArea($element, 'comments', array(), !$element->change_noted, array(), array('label' => 3, 'field' => 4))?>
 	</div>
 </section>

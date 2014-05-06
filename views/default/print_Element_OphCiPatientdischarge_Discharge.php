@@ -65,10 +65,7 @@
 			<td width="30%"><?php echo CHtml::encode($element->getAttributeLabel('surgical_case_review_datetime'))?></td>
 			<td><span class="big"><?php echo CHtml::encode($element->NHSDate('surgical_case_review_datetime'))?></span></td>
 		</tr>
-		<tr>
-			<td width="30%"><?php echo CHtml::encode($element->getAttributeLabel('nurse_ophthalmologist_id'))?></td>
-			<td><span class="big"><?php echo $element->nurse_ophthalmologist ? $element->nurse_ophthalmologist->first_name : 'None'?></span></td>
-		</tr>
+
 	</tbody>
 </table>
 

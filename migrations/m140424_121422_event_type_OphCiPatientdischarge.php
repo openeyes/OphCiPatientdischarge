@@ -10,8 +10,8 @@ class m140424_121422_event_type_OphCiPatientdischarge extends CDbMigration
 
 		$event_type = $this->dbConnection->createCommand()->select('id')->from('event_type')->where('class_name=:class_name', array(':class_name'=>'OphCiPatientdischarge'))->queryRow();
 
-		if (!$this->dbConnection->createCommand()->select('id')->from('element_type')->where('name=:name and event_type_id=:eventTypeId', array(':name'=>'Discharge prep',':eventTypeId'=>$event_type['id']))->queryRow()) {
-			$this->insert('element_type', array('name' => 'Discharge prep','class_name' => 'Element_OphCiPatientdischarge_DischargePrep', 'event_type_id' => $event_type['id'], 'display_order' => 1));
+		if (!$this->dbConnection->createCommand()->select('id')->from('element_type')->where('name=:name and event_type_id=:eventTypeId', array(':name'=>'Nursing post-anesthesia patient discharge preparation',':eventTypeId'=>$event_type['id']))->queryRow()) {
+			$this->insert('element_type', array('name' => 'Nursing post-anesthesia patient discharge preparation','class_name' => 'Element_OphCiPatientdischarge_DischargePrep', 'event_type_id' => $event_type['id'], 'display_order' => 1));
 		}
 
 		$element_type = $this->dbConnection->createCommand()->select('id')->from('element_type')->where('event_type_id=:eventTypeId and name=:name', array(':eventTypeId'=>$event_type['id'],':name'=>'Discharge prep'))->queryRow();
@@ -95,8 +95,6 @@ class m140424_121422_event_type_OphCiPatientdischarge extends CDbMigration
 
 				'surgical_case_review_datetime' => 'datetime DEFAULT NULL',
 
-				'nurse_ophthalmologist_id' => 'int(10) unsigned NOT NULL',
-
 				'last_modified_user_id' => 'int(10) unsigned NOT NULL DEFAULT 1',
 				'last_modified_date' => 'datetime NOT NULL DEFAULT \'1901-01-01 00:00:00\'',
 				'created_user_id' => 'int(10) unsigned NOT NULL DEFAULT 1',
@@ -110,7 +108,6 @@ class m140424_121422_event_type_OphCiPatientdischarge extends CDbMigration
 				'KEY `et_ophcipatientdischarge_p_patient_emergency_contact_id_fk` (`patient_emergency_contact_id`)',
 				'KEY `et_ophcipatientdischarge_p_patient_followup_contact_id_fk` (`patient_followup_contact_id`)',
 				'KEY `et_ophcipatientdischarge_s_surgical_case_review_contact_id_fk` (`surgical_case_review_contact_id`)',
-				'KEY `et_ophcipatientdischarge_discharge_nurse_ophthalmologist_id_fk` (`nurse_ophthalmologist_id`)',
 				'CONSTRAINT `et_ophcipatientdischarge_discharge_lmui_fk` FOREIGN KEY (`last_modified_user_id`) REFERENCES `user` (`id`)',
 				'CONSTRAINT `et_ophcipatientdischarge_discharge_cui_fk` FOREIGN KEY (`created_user_id`) REFERENCES `user` (`id`)',
 				'CONSTRAINT `et_ophcipatientdischarge_discharge_ev_fk` FOREIGN KEY (`event_id`) REFERENCES `event` (`id`)',
@@ -119,7 +116,6 @@ class m140424_121422_event_type_OphCiPatientdischarge extends CDbMigration
 				'CONSTRAINT `et_ophcipatientdischarge_p_patient_emergency_contact_id_fk` FOREIGN KEY (`patient_emergency_contact_id`) REFERENCES `user` (`id`)',
 				'CONSTRAINT `et_ophcipatientdischarge_p_patient_followup_contact_id_fk` FOREIGN KEY (`patient_followup_contact_id`) REFERENCES `user` (`id`)',
 				'CONSTRAINT `et_ophcipatientdischarge_s_surgical_case_review_contact_id_fk` FOREIGN KEY (`surgical_case_review_contact_id`) REFERENCES `user` (`id`)',
-				'CONSTRAINT `et_ophcipatientdischarge_discharge_nurse_ophthalmologist_id_fk` FOREIGN KEY (`nurse_ophthalmologist_id`) REFERENCES `user` (`id`)',
 			), 'ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin');
 
 	}

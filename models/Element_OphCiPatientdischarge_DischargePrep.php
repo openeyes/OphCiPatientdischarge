@@ -94,7 +94,7 @@ class Element_OphCiPatientdischarge_DischargePrep  extends  BaseEventTypeElement
 			'eye_dressing_in_place' => 'Eye dressing in place',
 			'iv_removed' => 'IV removed',
 			'ecg_dots_removed' => 'ECG dots removed',
-			'change_noted' => 'Change noted',
+			'change_noted' => 'Any change noted in patient condition since discharged by Anesthesiologist?',
 			'comments' => 'Comments',
 		);
 	}

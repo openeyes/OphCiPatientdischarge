@@ -34,7 +34,6 @@
  * @property string $patient_followup_datetime
  * @property integer $surgical_case_review_contact_id
  * @property string $surgical_case_review_datetime
- * @property integer $nurse_ophthalmologist_id
  *
  * The followings are the available model relations:
  *
@@ -48,7 +47,6 @@
  * @property User $patient_emergency_contact
  * @property User $patient_followup_contact
  * @property User $surgical_case_review_contact
- * @property User $nurse_ophthalmologist
  */
 
 class Element_OphCiPatientdischarge_Discharge  extends  BaseEventTypeElement
@@ -79,9 +77,9 @@ class Element_OphCiPatientdischarge_Discharge  extends  BaseEventTypeElement
 	public function rules()
 	{
 		return array(
-			array('event_id, translator_present_id, name_of_translator, take_home_medications, postop_education, additional_patient_instructions, patient_handoff_to_id, patient_emergency_contact_id, patient_followup_contact_id, patient_followup_datetime, surgical_case_review_contact_id, surgical_case_review_datetime, nurse_ophthalmologist_id, patient_followup_datetime_time, surgical_case_review_datetime_time', 'safe'),
-			array('translator_present_id, take_home_medications, postop_education, additional_patient_instructions, patient_handoff_to_id, patient_emergency_contact_id, patient_followup_contact_id, patient_followup_datetime, surgical_case_review_contact_id, surgical_case_review_datetime, nurse_ophthalmologist_id, patient_followup_datetime_time, surgical_case_review_datetime_time', 'required'),
-			array('id, event_id, translator_present_id, name_of_translator, take_home_medications, postop_education, additional_patient_instructions, patient_handoff_to_id, patient_emergency_contact_id, patient_followup_contact_id, patient_followup_datetime, surgical_case_review_contact_id, surgical_case_review_datetime, nurse_ophthalmologist_id, ', 'safe', 'on' => 'search'),
+			array('event_id, translator_present_id, name_of_translator, take_home_medications, postop_education, additional_patient_instructions, patient_handoff_to_id, patient_emergency_contact_id, patient_followup_contact_id, patient_followup_datetime, surgical_case_review_contact_id, surgical_case_review_datetime, patient_followup_datetime_time, surgical_case_review_datetime_time', 'safe'),
+			array('translator_present_id, take_home_medications, postop_education, additional_patient_instructions, patient_handoff_to_id, patient_emergency_contact_id, patient_followup_contact_id, patient_followup_datetime, surgical_case_review_contact_id, surgical_case_review_datetime, patient_followup_datetime_time, surgical_case_review_datetime_time', 'required'),
+			array('id, event_id, translator_present_id, name_of_translator, take_home_medications, postop_education, additional_patient_instructions, patient_handoff_to_id, patient_emergency_contact_id, patient_followup_contact_id, patient_followup_datetime, surgical_case_review_contact_id, surgical_case_review_datetime', 'safe', 'on' => 'search'),
 		);
 	}
 
@@ -101,7 +99,6 @@ class Element_OphCiPatientdischarge_Discharge  extends  BaseEventTypeElement
 			'patient_emergency_contact' => array(self::BELONGS_TO, 'User', 'patient_emergency_contact_id'),
 			'patient_followup_contact' => array(self::BELONGS_TO, 'User', 'patient_followup_contact_id'),
 			'surgical_case_review_contact' => array(self::BELONGS_TO, 'User', 'surgical_case_review_contact_id'),
-			'nurse_ophthalmologist' => array(self::BELONGS_TO, 'User', 'nurse_ophthalmologist_id'),
 		);
 	}
 
@@ -124,7 +121,6 @@ class Element_OphCiPatientdischarge_Discharge  extends  BaseEventTypeElement
 			'patient_followup_datetime' => 'Patient followup date',
 			'surgical_case_review_contact_id' => 'Surgical case review',
 			'surgical_case_review_datetime' => 'Surgical case review datetime',
-			'nurse_ophthalmologist_id' => 'Nurse ophthalmologist',
 			'patient_followup_datetime_time' => 'Patient followup time',
 			'surgical_case_review_datetime_time' => 'Surgical case review contact time',
 		);
@@ -151,7 +147,6 @@ class Element_OphCiPatientdischarge_Discharge  extends  BaseEventTypeElement
 		$criteria->compare('patient_followup_datetime', $this->patient_followup_datetime);
 		$criteria->compare('surgical_case_review_contact_id', $this->surgical_case_review_contact_id);
 		$criteria->compare('surgical_case_review_datetime', $this->surgical_case_review_datetime);
-		$criteria->compare('nurse_ophthalmologist_id', $this->nurse_ophthalmologist_id);
 
 		return new CActiveDataProvider(get_class($this), array(
 			'criteria' => $criteria,

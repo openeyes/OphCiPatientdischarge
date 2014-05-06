@@ -80,9 +80,5 @@
 				</div>
 			</div>
 		</div>
-		<div class="row data-row">
-			<div class="large-3 column"><div class="data-label"><?php echo CHtml::encode($element->getAttributeLabel('nurse_ophthalmologist_id'))?></div></div>
-			<div class="large-9 column end"><div class="data-value"><?php echo $element->nurse_ophthalmologist ? $element->nurse_ophthalmologist->fullName : 'None'?></div></div>
-		</div>
 	</div>
 </section>

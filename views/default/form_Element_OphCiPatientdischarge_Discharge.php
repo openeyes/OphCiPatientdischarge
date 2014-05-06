@@ -19,10 +19,10 @@
 ?>
 
 <section class="element <?php echo $element->elementType->class_name?>"
-	data-element-type-id="<?php echo $element->elementType->id?>"
-	data-element-type-class="<?php echo $element->elementType->class_name?>"
-	data-element-type-name="<?php echo $element->elementType->name?>"
-	data-element-display-order="<?php echo $element->elementType->display_order?>">
+				 data-element-type-id="<?php echo $element->elementType->id?>"
+				 data-element-type-class="<?php echo $element->elementType->class_name?>"
+				 data-element-type-name="<?php echo $element->elementType->name?>"
+				 data-element-display-order="<?php echo $element->elementType->display_order?>">
 	<header class="element-header">
 		<h3 class="element-title"><?php echo $element->elementType->name; ?></h3>
 	</header>
@@ -56,10 +56,17 @@
 						<?php echo $form->dropDownList($element, 'patient_followup_contact_id', CHtml::listData(User::model()->findAll(array('order'=> 'first_name asc, last_name asc')),'id','fullName'),array('nowrapper'=>true,'empty'=>'- Please select -'),false,array('label'=>3,'field'=>4))?>
 					</div>
 					<div class="large-2 column">
-						<?php echo $form->datePicker($element, 'patient_followup_datetime', array('maxDate' => 'today'), array('nowrapper' => true), array('label' => 3, 'field' => 4))?>
+						<?php echo $form->datePicker($element, 'patient_followup_datetime', array('maxDate' => 'today'), array('nowrapper' => true, 'null' => 'true'), array('label' => 3, 'field' => 4))?>
 					</div>
-					<div class="large-1 column end">
-						<?php echo $form->textField($element, 'patient_followup_datetime_time', array('nowrapper' => true))?>
+					<div class="large-2 column end">
+						<div class="field-row">
+							<div class="large-10 column">
+								<?php echo $form->textField($element, 'patient_followup_datetime_time', array('nowrapper' => true))?>
+							</div>
+							<div class="large-2 column collapse end">
+								<span class="field-info">Time</span>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -76,14 +83,21 @@
 						<?php echo $form->dropDownList($element, 'surgical_case_review_contact_id', CHtml::listData(User::model()->findAll(array('order'=> 'first_name asc, last_name asc')),'id','fullName'),array('nowrapper'=>true,'empty'=>'- Please select -'),false,array('label'=>3,'field'=>4))?>
 					</div>
 					<div class="large-2 column">
-						<?php echo $form->datePicker($element, 'surgical_case_review_datetime', array('maxDate' => 'today'), array('nowrapper' => true))?>
+						<?php echo $form->datePicker($element, 'surgical_case_review_datetime', array('maxDate' => 'today'), array('nowrapper' => true, 'null'=>true))?>
 					</div>
-					<div class="large-1 column end">
-						<?php echo $form->textField($element, 'surgical_case_review_datetime_time', array('nowrapper' => true))?>
+					<div class="large-2 column end">
+						<div class="field-row">
+							<div class="large-10 column">
+								<?php echo $form->textField($element, 'surgical_case_review_datetime_time', array('nowrapper' => true))?>
+							</div>
+							<div class="large-2 column collapse end">
+								<span class="field-info">Time</span>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-		<?php echo $form->dropDownList($element, 'nurse_ophthalmologist_id', CHtml::listData(User::model()->findAll(array('order'=> 'first_name asc, last_name asc')),'id','fullName'),array('empty'=>'- Please select -'),false,array('label'=>3,'field'=>4))?>
+
 	</div>
 </section>
