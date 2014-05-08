@@ -64,7 +64,6 @@ class Element_OphCiPatientdischarge_DischargePrep  extends  BaseEventTypeElement
 	{
 		return array(
 			array('event_id, eye_dressing_in_place, iv_removed, ecg_dots_removed, change_noted, comments, ', 'safe'),
-			array('eye_dressing_in_place, iv_removed, ecg_dots_removed, change_noted', 'required'),
 			array('id, event_id, eye_dressing_in_place, iv_removed, ecg_dots_removed, change_noted, comments, ', 'safe', 'on' => 'search'),
 		);
 	}

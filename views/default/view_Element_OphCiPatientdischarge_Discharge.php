@@ -26,9 +26,9 @@
 	<div class="element-data">
 		<div class="row data-row">
 			<div class="large-3 column"><div class="data-label"><?php echo CHtml::encode($element->getAttributeLabel('translator_present_id'))?></div></div>
-			<div class="large-9 column end"><div class="data-value"><?php echo $element->translator_present ? $element->translator_present->name : 'None'?></div></div>
+			<div class="large-9 column end"><div class="data-value"><?php echo $element->translator_present ? $element->translator_present->name : 'Not recorded'?></div></div>
 		</div>
-		<?php if ($element->translator_present->name == 'Yes') {?>
+		<?php if ($element->translator_present && $element->translator_present->name == 'Yes') {?>
 			<div class="row data-row">
 				<div class="large-3 column"><div class="data-label"><?php echo CHtml::encode($element->getAttributeLabel('name_of_translator'))?></div></div>
 				<div class="large-9 column end"><div class="data-value"><?php echo CHtml::encode($element->name_of_translator)?></div></div>
@@ -42,10 +42,12 @@
 			<div class="large-3 column"><div class="data-label"><?php echo CHtml::encode($element->getAttributeLabel('postop_education'))?></div></div>
 			<div class="large-9 column end"><div class="data-value"><?php echo $element->postop_education ? 'Yes' : 'No'?></div></div>
 		</div>
-		<div class="row data-row">
-			<div class="large-3 column"><div class="data-label"><?php echo CHtml::encode($element->getAttributeLabel('additional_patient_instructions'))?></div></div>
-			<div class="large-9 column end"><div class="data-value"><?php echo CHtml::encode($element->additional_patient_instructions)?></div></div>
-		</div>
+		<?php if ($element->additional_patient_instructions) {?>
+			<div class="row data-row">
+				<div class="large-3 column"><div class="data-label"><?php echo CHtml::encode($element->getAttributeLabel('additional_patient_instructions'))?></div></div>
+				<div class="large-9 column end"><div class="data-value"><?php echo CHtml::encode($element->additional_patient_instructions)?></div></div>
+			</div>
+		<?php }?>
 		<div class="row data-row">
 			<div class="large-3 column"><div class="data-label"><?php echo CHtml::encode($element->getAttributeLabel('patient_handoff_to_id'))?></div></div>
 			<div class="large-9 column end"><div class="data-value"><?php echo $element->patient_handoff_to ? $element->patient_handoff_to->name : 'None'?></div></div>

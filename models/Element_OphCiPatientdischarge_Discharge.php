@@ -80,7 +80,6 @@ class Element_OphCiPatientdischarge_Discharge  extends  BaseEventTypeElement
 	{
 		return array(
 			array('event_id, translator_present_id, name_of_translator, take_home_medications, postop_education, additional_patient_instructions, patient_handoff_to_id, patient_emergency_contact_id, patient_followup_contact_id, patient_followup_datetime, surgical_case_review_contact_id, surgical_case_review_datetime, nurse_ophthalmologist_id, patient_followup_datetime_time, surgical_case_review_datetime_time', 'safe'),
-			array('translator_present_id, take_home_medications, postop_education, additional_patient_instructions, patient_handoff_to_id, patient_emergency_contact_id, patient_followup_contact_id, patient_followup_datetime, surgical_case_review_contact_id, surgical_case_review_datetime, nurse_ophthalmologist_id, patient_followup_datetime_time, surgical_case_review_datetime_time', 'required'),
 			array('id, event_id, translator_present_id, name_of_translator, take_home_medications, postop_education, additional_patient_instructions, patient_handoff_to_id, patient_emergency_contact_id, patient_followup_contact_id, patient_followup_datetime, surgical_case_review_contact_id, surgical_case_review_datetime, nurse_ophthalmologist_id, ', 'safe', 'on' => 'search'),
 		);
 	}
