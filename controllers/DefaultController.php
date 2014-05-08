@@ -5,9 +5,7 @@ class DefaultController extends BaseEventTypeController
 	protected function setElementDefaultOptions_Element_OphCiPatientdischarge_Discharge($element, $action)
 	{
 		if ($action == 'create') {
-			$element->patient_followup_datetime_time = '12:00';
-			$element->surgical_case_review_datetime_time = '12:00';
-
+			
 			if ($event = Event::model()->find(array(
 					'condition' => 'event_type_id = :event_type_id',
 					'params' => array(
