@@ -56,7 +56,7 @@
 						<?php echo $form->dropDownList($element, 'patient_followup_contact_id', CHtml::listData(User::model()->findAll(array('order'=> 'first_name asc, last_name asc')),'id','fullName'),array('nowrapper'=>true,'empty'=>'- Please select -'),false,array('label'=>3,'field'=>4))?>
 					</div>
 					<div class="large-2 column">
-						<?php echo $form->datePicker($element, 'patient_followup_datetime', array('maxDate' => 'today'), array('nowrapper' => true, 'null' => 'true'), array('label' => 3, 'field' => 4))?>
+						<?php echo $form->datePicker($element, 'patient_followup_datetime', array(), array('nowrapper' => true, 'null' => 'true'), array('label' => 3, 'field' => 4))?>
 					</div>
 					<div class="large-2 column end">
 						<div class="field-row">
@@ -83,7 +83,7 @@
 						<?php echo $form->dropDownList($element, 'surgical_case_review_contact_id', CHtml::listData(User::model()->findAll(array('order'=> 'first_name asc, last_name asc')),'id','fullName'),array('nowrapper'=>true,'empty'=>'- Please select -'),false,array('label'=>3,'field'=>4))?>
 					</div>
 					<div class="large-2 column">
-						<?php echo $form->datePicker($element, 'surgical_case_review_datetime', array('maxDate' => 'today'), array('nowrapper' => true, 'null'=>true))?>
+						<?php echo $form->datePicker($element, 'surgical_case_review_datetime', array(), array('nowrapper' => true, 'null'=>true))?>
 					</div>
 					<div class="large-2 column end">
 						<div class="field-row">
