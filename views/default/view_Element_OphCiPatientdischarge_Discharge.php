@@ -60,12 +60,16 @@
 			<div class="large-3 column"><div class="data-label"><?php echo CHtml::encode($element->getAttributeLabel('patient_followup_contact_id'))?></div></div>
 			<div class="large-9 column end">
 				<div class="data-value">
-					with
-					<?php echo $element->patient_followup_contact ? $element->patient_followup_contact->fullName : 'None'?>
-					on
-					<?php echo CHtml::encode($element->NHSDate('patient_followup_datetime'))?>
-					at
-					<?php echo substr($element->patient_followup_datetime,11,5)?>
+					<?php if ($element->patient_followup_contact) {?>
+						with
+						<?php echo $element->patient_followup_contact->fullName?>
+						on
+						<?php echo $element->patient_followup_datetime ? CHtml::encode($element->NHSDate('patient_followup_datetime')) : '(Date not specified)'?>
+						at
+						<?php echo $element->patient_followup_datetime ? substr($element->patient_followup_datetime,11,5) : '(Time not specified)'?>
+					<?php }else{?>
+						None
+					<?php }?>
 				</div>
 			</div>
 		</div>
@@ -73,12 +77,16 @@
 			<div class="large-3 column"><div class="data-label"><?php echo CHtml::encode($element->getAttributeLabel('surgical_case_review_contact_id'))?></div></div>
 			<div class="large-9 column end">
 				<div class="data-value">
-					with
-					<?php echo $element->surgical_case_review_contact ? $element->surgical_case_review_contact->fullName : 'None'?>
-					on
-					<?php echo CHtml::encode($element->NHSDate('surgical_case_review_datetime'))?>
-					at
-					<?php echo substr($element->surgical_case_review_datetime,11,5)?>
+					<?php if ($element->surgical_case_review_contact) {?>
+						with
+						<?php echo $element->surgical_case_review_contact->fullName?>
+						on
+						<?php echo $element->surgical_case_review_datetime ? CHtml::encode($element->NHSDate('surgical_case_review_datetime')) : '(Date not specified)'?>
+						at
+						<?php echo $element->surgical_case_review_datetime ? substr($element->surgical_case_review_datetime,11,5) : '(Time not specified)'?>
+					<?php }else{?>
+						None
+					<?php }?>
 				</div>
 			</div>
 		</div>

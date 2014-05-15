@@ -185,8 +185,17 @@ class Element_OphCiPatientdischarge_Discharge  extends  BaseEventTypeElement
 
 	public function beforeSave()
 	{
-		$this->patient_followup_datetime .= ' '.$this->patient_followup_datetime_time;
-		$this->surgical_case_review_datetime .= ' '.$this->surgical_case_review_datetime_time;
+		if ($this->patient_followup_datetime) {
+			$this->patient_followup_datetime .= ' '.$this->patient_followup_datetime_time;
+		} else {
+			$this->patient_followup_datetime = null;
+		}
+
+		if ($this->surgical_case_review_datetime) {
+			$this->surgical_case_review_datetime .= ' '.$this->surgical_case_review_datetime_time;
+		} else {
+			$this->surgical_case_review_datetime = null;
+		}
 
 		return parent::beforeSave();
 	}
