@@ -168,6 +168,22 @@ class Element_OphCiPatientdischarge_Discharge  extends  BaseEventTypeElement
 			}
 		}
 
+		if ($this->patient_followup_datetime) {
+			if (!preg_match('/^[0-9]{4}-[0-9]{2}-[0-9]{2}$/',$this->patient_followup_datetime)) {
+				$this->addError('patient_followup_datetime','Invalid format for '.$this->getAttributeLabel('patient_followup_datetime'));
+			} else if (strtotime($this->patient_followup_datetime) < strtotime(date('Y-m-d'))) {
+				$this->addError('patient_followup_datetime',$this->getAttributeLabel('patient_followup_datetime').' cannot be in the past.');
+			}
+		}
+
+		if ($this->surgical_case_review_datetime) {
+			if (!preg_match('/^[0-9]{4}-[0-9]{2}-[0-9]{2}$/',$this->surgical_case_review_datetime)) {
+				$this->addError('surgical_case_review_datetime','Invalid format for '.$this->getAttributeLabel('surgical_case_review_datetime'));
+			} else if (strtotime($this->surgical_case_review_datetime) < strtotime(date('Y-m-d'))) {
+				$this->addError('surgical_case_review_datetime',$this->getAttributeLabel('surgical_case_review_datetime').' cannot be in the past.');
+			}
+		}
+
 		if ($this->patient_followup_datetime_time) {
 			if (!preg_match('/^([0-9]{1,2}):([0-9]{2})$/',$this->patient_followup_datetime_time,$m) || $m[1] > 23 || $m[2] > 59) {
 				$this->addError('patient_followup_datetime_time','Invalid format for '.$this->getAttributeLabel('patient_followup_datetime_time'));
