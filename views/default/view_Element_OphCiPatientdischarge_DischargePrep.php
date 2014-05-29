@@ -40,7 +40,7 @@
 			<div class="large-3 column"><div class="data-label"><?php echo CHtml::encode($element->getAttributeLabel('change_noted'))?>:</div></div>
 			<div class="large-9 column end"><div class="data-value"><?php echo is_null($element->change_noted) ? 'Not recorded' : ($element->change_noted ? 'Yes' : 'No')?></div></div>
 		</div>
-		<?php if ($element->comments) {?>
+		<?php if ($element->change_noted && $element->comments) {?>
 			<div class="row data-row">
 				<div class="large-3 column"><div class="data-label"><?php echo CHtml::encode($element->getAttributeLabel('comments'))?></div></div>
 				<div class="large-9 column end"><div class="data-value"><?php echo $element->textWithLineBreaks('comments')?></div></div>
