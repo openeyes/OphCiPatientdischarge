@@ -51,7 +51,7 @@
 					<div class="large-2 column end">
 						<div class="field-row">
 							<div class="large-10 column">
-								<?php echo $form->textField($element, 'patient_followup_datetime_time', array('nowrapper' => true))?>
+								<?php echo $form->timePicker($element, 'patient_followup_datetime_time', array(), array('nowrapper' => true))?>
 							</div>
 							<div class="large-2 column collapse end">
 								<span class="field-info">Time</span>
@@ -78,7 +78,7 @@
 					<div class="large-2 column end">
 						<div class="field-row">
 							<div class="large-10 column">
-								<?php echo $form->textField($element, 'surgical_case_review_datetime_time', array('nowrapper' => true))?>
+								<?php echo $form->timePicker($element, 'surgical_case_review_datetime_time', array(), array('nowrapper' => true))?>
 							</div>
 							<div class="large-2 column collapse end">
 								<span class="field-info">Time</span>
