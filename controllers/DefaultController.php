@@ -2,10 +2,24 @@
 
 class DefaultController extends BaseEventTypeController
 {
+	public function actionView($id)
+	{
+		if ($this->checkPrintAccess()) {
+			$this->event_actions[] = EventAction::button('Print', 'print-event', array(
+				'display_order' => 2
+			), array(
+				'id' => 'et_print',
+				'class'=>'button small'
+			));
+		}
+
+		parent::actionView($id);
+	}
+
 	protected function setElementDefaultOptions_Element_OphCiPatientdischarge_Discharge($element, $action)
 	{
 		if ($action == 'create') {
-			
+
 			if ($event = Event::model()->find(array(
 					'condition' => 'event_type_id = :event_type_id',
 					'params' => array(
