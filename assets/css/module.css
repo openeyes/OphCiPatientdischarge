@@ -18,15 +18,15 @@
  */
 /* line 17, ../sass/components/_event.scss */
 .event {
-  border-color: #aaaaaa;
+  border-color: #fdcc56;
 }
 /* line 19, ../sass/components/_event.scss */
 .event .event-content {
-  background-image: url('../img/watermark.png?1406886903');
+  background-image: url('../img/watermark.png?1408358510');
 }
 /* line 22, ../sass/components/_event.scss */
 .event .event-title {
-  background-image: url('../img/medium.png?1405957429');
+  background-image: url('../img/medium.png?1408358558');
 }
 
 /* line 28, ../sass/components/_event.scss */
