@@ -38,6 +38,20 @@ $(document).ready(function() {
 			}
 		}
 	});
+
+	$('#Element_OphCiPatientdischarge_Type_type_id').change(function(e) {
+		if ($(this).children('option:selected').text().trim() != 'Recovery to ward') {
+			$('section.Element_OphCiPatientdischarge_DischargePrep').find('.js-remove-element').click();
+		} else {
+			$('.optional-elements-list').children('li[data-element-type-class="Element_OphCiPatientdischarge_DischargePrep"]').children('a').click();
+		}
+
+		if ($(this).children('option:selected').text().trim() == 'Laser or injection') {
+			$('section.Element_OphCiPatientdischarge_Instructions').find('.js-remove-element').click();
+		} else {
+			$('.optional-elements-list').children('li[data-element-type-class="Element_OphCiPatientdischarge_Instructions"]').children('a').click();
+		}
+	});
 });
 
 function ucfirst(str) { str += ''; var f = str.charAt(0).toUpperCase(); return f + str.substr(1); }

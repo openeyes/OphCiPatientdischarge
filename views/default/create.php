@@ -27,8 +27,10 @@ $this->beginContent('//patient/event_container');
 	));
 		$this->event_actions[] = EventAction::button('Save', 'save', array('level' => 'save'), array('form'=>'create-form'));
 		$this->displayErrors($errors);
-		$this->renderOpenElements($this->action->id, $form);
-		$this->renderOptionalElements($this->action->id, $form);
+		$this->renderPartial('//patient/event_elements', array(
+			'form' => $form,
+			'disableOptionalElementActions' => true
+		));
 		$this->displayErrors($errors, true);
 	$this->endWidget();
 $this->endContent();
