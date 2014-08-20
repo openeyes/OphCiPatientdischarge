@@ -17,8 +17,14 @@
  * @license http://www.gnu.org/licenses/gpl-3.0.html The GNU General Public License V3.0
  */
 ?>
-<div class="element-fields">
-	<?php echo $form->radioBoolean($element, 'change_noted', array('class' => 'linked-fields', 'data-linked-fields' => 'comments', 'data-linked-values' => 'Yes'), array('label' => 3, 'field' => 4))?>
-	<?php echo $form->textArea($element, 'comments', array(), !$element->change_noted, array(), array('label' => 3, 'field' => 4))?>
-	<?php echo $form->textField($element, 'handoff_to', array(), array(), array('label' => 3, 'field' => 4))?>
+<div class="element-data">
+	<?php $this->widget('application.widgets.Records', array(
+		'element' => $element,
+		'model' => new OphCiPatientdischarge_Followup_Item,
+		'field' => 'items',
+		'row_view' => 'protected/modules/OphCiPatientdischarge/views/default/_followup_row.php',
+		'edit' => false,
+		'no_items_text' => 'No followup appointments have been made',
+		'headings' => array('Date/time','Type','Location','Person'),
+	))?>
 </div>

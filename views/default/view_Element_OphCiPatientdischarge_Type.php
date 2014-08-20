@@ -17,8 +17,9 @@
  * @license http://www.gnu.org/licenses/gpl-3.0.html The GNU General Public License V3.0
  */
 ?>
-<div class="element-fields">
-	<?php echo $form->radioBoolean($element, 'change_noted', array('class' => 'linked-fields', 'data-linked-fields' => 'comments', 'data-linked-values' => 'Yes'), array('label' => 3, 'field' => 4))?>
-	<?php echo $form->textArea($element, 'comments', array(), !$element->change_noted, array(), array('label' => 3, 'field' => 4))?>
-	<?php echo $form->textField($element, 'handoff_to', array(), array(), array('label' => 3, 'field' => 4))?>
-</div>
+	<div class="element-data">
+		<div class="row data-row">
+			<div class="large-3 column"><div class="data-label"><?php echo CHtml::encode($element->getAttributeLabel('type_id'))?></div></div>
+			<div class="large-9 column end"><div class="data-value"><?php echo $element->type->name?></div></div>
+		</div>
+	</div>

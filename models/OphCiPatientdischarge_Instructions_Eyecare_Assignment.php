@@ -16,9 +16,54 @@
  * @copyright Copyright (c) 2011-2013, OpenEyes Foundation
  * @license http://www.gnu.org/licenses/gpl-3.0.html The GNU General Public License V3.0
  */
+
+class OphCiPatientdischarge_Instructions_Eyecare_Assignment extends BaseActiveRecordVersioned
+{
+	public static function model($className = __CLASS__)
+	{
+		return parent::model($className);
+	}
+
+	public function tableName()
+	{
+		return 'ophcipatientdischarge_instructions_eyecare_asgn';
+	}
+
+	public function rules()
+	{
+		return array(
+			array('eyecare_id', 'safe'),
+			array('eyecare_id', 'required'),
+			array('id, name', 'safe', 'on' => 'search'),
+		);
+	}
+
+	public function relations()
+	{
+		return array(
+			'element' => array(self::BELONGS_TO, 'Element_OphCiPatientdischarge_Instructions', 'element_id'),
+			'eyecare' => array(self::BELONGS_TO, 'OphCiPatientdischarge_Instructions_Eyecare', 'eyecare_id'),
+		);
+	}
+
+	public function attributeLabels()
+	{
+		return array(
+			'id' => 'ID',
+			'name' => 'Name',
+		);
+	}
+
+	public function search()
+	{
+		$criteria = new CDbCriteria;
+
+		$criteria->compare('id', $this->id, true);
+		$criteria->compare('name', $this->name, true);
+
+		return new CActiveDataProvider(get_class($this), array(
+			'criteria' => $criteria,
+		));
+	}
+}
 ?>
-<div class="element-fields">
-	<?php echo $form->radioBoolean($element, 'change_noted', array('class' => 'linked-fields', 'data-linked-fields' => 'comments', 'data-linked-values' => 'Yes'), array('label' => 3, 'field' => 4))?>
-	<?php echo $form->textArea($element, 'comments', array(), !$element->change_noted, array(), array('label' => 3, 'field' => 4))?>
-	<?php echo $form->textField($element, 'handoff_to', array(), array(), array('label' => 3, 'field' => 4))?>
-</div>

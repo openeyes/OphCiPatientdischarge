@@ -19,18 +19,6 @@
 ?>
 	<div class="element-data">
 		<div class="row data-row">
-			<div class="large-3 column"><div class="data-label"><?php echo CHtml::encode($element->getAttributeLabel('eye_dressing_in_place'))?></div></div>
-			<div class="large-9 column end"><div class="data-value"><?php echo $element->eye_dressing_in_place ? 'Yes' : 'No'?></div></div>
-		</div>
-		<div class="row data-row">
-			<div class="large-3 column"><div class="data-label"><?php echo CHtml::encode($element->getAttributeLabel('iv_removed'))?></div></div>
-			<div class="large-9 column end"><div class="data-value"><?php echo $element->iv_removed ? 'Yes' : 'No'?></div></div>
-		</div>
-		<div class="row data-row">
-			<div class="large-3 column"><div class="data-label"><?php echo CHtml::encode($element->getAttributeLabel('ecg_dots_removed'))?></div></div>
-			<div class="large-9 column end"><div class="data-value"><?php echo $element->ecg_dots_removed ? 'Yes' : 'No'?></div></div>
-		</div>
-		<div class="row data-row">
 			<div class="large-3 column"><div class="data-label"><?php echo CHtml::encode($element->getAttributeLabel('change_noted'))?>:</div></div>
 			<div class="large-9 column end"><div class="data-value"><?php echo is_null($element->change_noted) ? 'Not recorded' : ($element->change_noted ? 'Yes' : 'No')?></div></div>
 		</div>
@@ -40,4 +28,8 @@
 				<div class="large-9 column end"><div class="data-value"><?php echo $element->textWithLineBreaks('comments')?></div></div>
 			</div>
 		<?php }?>
+		<div class="row data-row">
+			<div class="large-3 column"><div class="data-label"><?php echo CHtml::encode($element->getAttributeLabel('handoff_to'))?></div></div>
+			<div class="large-9 column end"><div class="data-value"><?php echo $element->textWithLineBreaks('handoff_to')?></div></div>
+		</div>
 	</div>

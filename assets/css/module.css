@@ -22,11 +22,11 @@
 }
 /* line 19, ../sass/components/_event.scss */
 .event .event-content {
-  background-image: url('../img/watermark.png?1406886903');
+  background-image: url('../img/watermark.png?1407516180');
 }
 /* line 22, ../sass/components/_event.scss */
 .event .event-title {
-  background-image: url('../img/medium.png?1405957429');
+  background-image: url('../img/medium.png?1406619606');
 }
 
 /* line 28, ../sass/components/_event.scss */
@@ -47,4 +47,44 @@
 /* line 43, ../sass/components/_event.scss */
 #Element_OphCiPatientdischarge_Discharge_surgical_case_review_datetime_time {
   width: 5em;
+}
+
+/* line 48, ../sass/components/_event.scss */
+.addRecordItemDiv label {
+  width: 10em;
+  margin-top: 5px;
+}
+/* line 52, ../sass/components/_event.scss */
+.addRecordItemDiv input.recordInput {
+  width: 15em;
+  margin-left: 1em;
+}
+/* line 56, ../sass/components/_event.scss */
+.addRecordItemDiv select.recordInput {
+  margin-left: 1em;
+}
+/* line 59, ../sass/components/_event.scss */
+.addRecordItemDiv .large-2 {
+  display: inline-block !important;
+  margin-left: 0;
+  margin-top: 3px;
+}
+/* line 64, ../sass/components/_event.scss */
+.addRecordItemDiv .recordTimestamp {
+  width: 6.8em;
+  display: inline-block;
+}
+/* line 68, ../sass/components/_event.scss */
+.addRecordItemDiv .recordTime {
+  width: 5em;
+  display: inline-block !important;
+}
+/* line 72, ../sass/components/_event.scss */
+.addRecordItemDiv .recordDateLabel {
+  width: 6.8em;
+}
+/* line 75, ../sass/components/_event.scss */
+.addRecordItemDiv .recordsUseLastItemDiv {
+  width: 35%;
+  margin: 0 auto;
 }

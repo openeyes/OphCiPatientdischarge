@@ -2,6 +2,10 @@
 
 class DefaultController extends BaseEventTypeController
 {
+	static protected $action_types = array(
+		'validateFollowupItem' => self::ACTION_TYPE_FORM,
+	);
+
 	public function actionView($id)
 	{
 		if ($this->checkPrintAccess()) {
@@ -34,5 +38,77 @@ class DefaultController extends BaseEventTypeController
 				}
 			}
 		}
+	}
+
+	public function actionValidateFollowupItem()
+	{
+		if (!@$_POST['Element_OphCiPatientdischarge_Followup_items_editItem'] || !($item = OphCiPatientdischarge_Followup_Item::model()->findByPk($_POST['Element_OphCiPatientdischarge_Followup_items_editItem_id']))) {
+			$item = new OphCiPatientdischarge_Followup_Item;
+		}
+
+		$item->attributes = $_POST;
+
+		$item->validate();
+
+		$errors = array();
+
+		foreach ($item->errors as $field => $error) {
+			$errors[$field] = $error[0];
+		}
+
+		if (empty($errors)) {
+			$item->timestamp = date('Y-m-d').' '.$item->time.':00';
+			$errors['row'] = $this->renderPartial('_followup_row',array('item' => $item, 'i' => $_POST['i'], 'edit' => true),true);
+		}
+
+		echo json_encode($errors);
+	}
+
+	public function setComplexAttributes_Element_OphCiPatientdischarge_Followup($element, $data, $index)
+	{
+		$items = array();
+
+		if (!empty($data['OphCiPatientdischarge_Followup_Item']['id'])) {
+			foreach ($data['OphCiPatientdischarge_Followup_Item']['id'] as $i => $id) {
+				if (!$id || !($item = OphCiPatientdischarge_Followup_Item::model()->findByPk($id))) {
+					$item = new OphCiPatientdischarge_Followup_Item;
+				}
+
+				$item->type_id = $data['OphCiPatientdischarge_Followup_Item']['type_id'][$i];
+				$item->location = $data['OphCiPatientdischarge_Followup_Item']['location'][$i];
+				$item->person = $data['OphCiPatientdischarge_Followup_Item']['person'][$i];
+				$item->timestamp = $data['OphCiPatientdischarge_Followup_Item']['timestamp'][$i];
+				$item->time = date('H:i',strtotime($item->timestamp));
+
+				$items[] = $item;
+			}
+		}
+
+		$element->items = $items;
+	}
+
+	public function saveComplexAttributes_Element_OphCiPatientdischarge_Followup($element, $data, $index)
+	{
+		$ids = array();
+
+		foreach ($element->items as $item) {
+			$item->element_id = $element->id;
+
+			if (!$item->save()) {
+				throw new Exception("Unable to save follow up item: ".print_r($item->errors,true));
+			}
+
+			$ids[] = $item->id;
+		}
+
+		$criteria = new CDbCriteria;
+		$criteria->addCondition('element_id = :ei');
+		$criteria->params[':ei'] = $element->id;
+
+		if (!empty($ids)) {
+			$criteria->addNotInCondition('id',$ids);
+		}
+
+		OphCiPatientdischarge_Followup_Item::model()->deleteAll($criteria);
 	}
 }

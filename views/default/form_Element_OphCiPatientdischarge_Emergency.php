@@ -18,7 +18,6 @@
  */
 ?>
 <div class="element-fields">
-	<?php echo $form->radioBoolean($element, 'change_noted', array('class' => 'linked-fields', 'data-linked-fields' => 'comments', 'data-linked-values' => 'Yes'), array('label' => 3, 'field' => 4))?>
-	<?php echo $form->textArea($element, 'comments', array(), !$element->change_noted, array(), array('label' => 3, 'field' => 4))?>
-	<?php echo $form->textField($element, 'handoff_to', array(), array(), array('label' => 3, 'field' => 4))?>
+	<?php echo $form->textField($element, 'contact_name', array(), array(), array('label' => 3, 'field' => 4))?>
+	<?php echo $form->textField($element, 'contact_phone', array(), array(), array('label' => 3, 'field' => 4))?>
 </div>

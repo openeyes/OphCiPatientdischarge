@@ -63,8 +63,8 @@ class Element_OphCiPatientdischarge_DischargePrep  extends  BaseEventTypeElement
 	public function rules()
 	{
 		return array(
-			array('event_id, eye_dressing_in_place, iv_removed, ecg_dots_removed, change_noted, comments, ', 'safe'),
-			array('id, event_id, eye_dressing_in_place, iv_removed, ecg_dots_removed, change_noted, comments, ', 'safe', 'on' => 'search'),
+			array('change_noted, comments, handoff_to', 'safe'),
+			array('change_noted, handoff_to', 'required'),
 		);
 	}
 
@@ -90,11 +90,9 @@ class Element_OphCiPatientdischarge_DischargePrep  extends  BaseEventTypeElement
 		return array(
 			'id' => 'ID',
 			'event_id' => 'Event',
-			'eye_dressing_in_place' => 'Eye dressing in place',
-			'iv_removed' => 'IV removed',
-			'ecg_dots_removed' => 'ECG dots removed',
 			'change_noted' => 'Any change noted in patient condition since discharged by Anesthesiologist?',
 			'comments' => 'Comments',
+			'handoff_to' => 'Patient handoff from ORBIS care to',
 		);
 	}
 
@@ -117,6 +115,15 @@ class Element_OphCiPatientdischarge_DischargePrep  extends  BaseEventTypeElement
 		return new CActiveDataProvider(get_class($this), array(
 			'criteria' => $criteria,
 		));
+	}
+
+	public function afterValidate()
+	{
+		if ($this->change_noted && strlen($this->comments) <1) {
+			$this->addError('comments','Please specify how the patients condition has changed');
+		}
+
+		return parent::afterValidate();
 	}
 }
 ?>

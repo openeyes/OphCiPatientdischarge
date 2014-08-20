@@ -43,3 +43,37 @@
 #Element_OphCiPatientdischarge_Discharge_surgical_case_review_datetime_time {
 	width: 5em;
 }
+
+.addRecordItemDiv {
+	label {
+		width: 10em;
+		margin-top: 5px;
+	}
+	input.recordInput {
+		width: 15em;
+		margin-left: 1em;
+	}
+	select.recordInput {
+		margin-left: 1em;
+	}
+	.large-2 {
+		display: inline-block !important;
+		margin-left: 0;
+		margin-top: 3px;
+	}
+	.recordTimestamp {
+		width: 6.8em;
+		display: inline-block;
+	}
+	.recordTime {
+		width: 5em;
+		display: inline-block !important;
+	}
+	.recordDateLabel {
+		width: 6.8em;
+	}
+	.recordsUseLastItemDiv {
+		width: 35%;
+		margin: 0 auto;
+	}
+}
