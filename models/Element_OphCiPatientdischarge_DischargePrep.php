@@ -64,7 +64,7 @@ class Element_OphCiPatientdischarge_DischargePrep  extends  BaseEventTypeElement
 	{
 		return array(
 			array('change_noted, comments, handoff_to', 'safe'),
-			array('change_noted, handoff_to', 'required'),
+			array('', 'required'),
 		);
 	}
 
@@ -94,6 +94,15 @@ class Element_OphCiPatientdischarge_DischargePrep  extends  BaseEventTypeElement
 			'comments' => 'Comments',
 			'handoff_to' => 'Patient handoff from ORBIS care to',
 		);
+	}
+
+	protected function beforeSave()
+	{
+		if ($this->change_noted === '') {
+			$this->change_noted = null;
+		}
+
+		return parent::beforeSave();
 	}
 
 	/**

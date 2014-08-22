@@ -33,7 +33,7 @@ class Element_OphCiPatientdischarge_Emergency  extends  BaseEventTypeElement
 	{
 		return array(
 			array('contact_name, contact_phone', 'safe'),
-			array('contact_name, contact_phone', 'required'),
+			array('', 'required'),
 		);
 	}
 
