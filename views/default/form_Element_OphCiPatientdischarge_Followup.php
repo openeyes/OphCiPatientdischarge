@@ -53,6 +53,7 @@
 				),
 			),
 		),
+		'include_time_now_button' => false,
 		'no_items_text' => 'No followup appointments have been made',
 		'add_button_text' => 'Add appointment',
 		'use_last_button_text' => false,
