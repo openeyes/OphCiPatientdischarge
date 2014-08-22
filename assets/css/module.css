@@ -22,19 +22,11 @@
 }
 /* line 19, ../sass/components/_event.scss */
 .event .event-content {
-<<<<<<< HEAD
-  background-image: url('../img/watermark.png?1407516180');
-}
-/* line 22, ../sass/components/_event.scss */
-.event .event-title {
-  background-image: url('../img/medium.png?1406619606');
-=======
   background-image: url('../img/watermark.png?1408358510');
 }
 /* line 22, ../sass/components/_event.scss */
 .event .event-title {
   background-image: url('../img/medium.png?1408358558');
->>>>>>> 8759fe5952b124c8252691ad28b05226211cb4da
 }
 
 /* line 28, ../sass/components/_event.scss */
