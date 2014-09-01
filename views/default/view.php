@@ -23,5 +23,4 @@ if ($this->event->delete_pending) {?>
 	</div>
 <?php }
 $this->renderOpenElements($this->action->id);
-$this->renderOptionalElements($this->action->id);
 $this->endContent();
